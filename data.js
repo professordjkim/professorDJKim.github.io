@@ -1,26 +1,128 @@
-// Unified Publications Data - Replace with your own publications
+// Unified Publications Data
 // Each publication can be a preprint or a conference/journal paper.
-// Use isSelected: true to feature it on the homepage and CV.
+// Use isSelected: true to feature it on the homepage. The publications page
+// groups entries by `year`. Keep the array in reverse-chronological order.
+// Full list: files/Kim_CV.pdf and Google Scholar.
 const publications = [
   {
-    title: "Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement",
-    authors: "<b>Your Name</b>, Co-Author One, Co-Author Two",
-    venue: "ACL 2025",
-    links: [
-      { text: "Paper", url: "https://aclanthology.org/2025.acl-long.1354/" },
-      { text: "Code", url: "https://github.com/Arvid-pku/Godel_Agent" }
-    ],
-    abstract: "The rapid advancement of large language models (LLMs) has significantly enhanced the capabilities of AI-driven agents across various tasks. However, existing agentic systems, whether based on fixed pipeline algorithms or pre-defined meta-learning frameworks, cannot search the whole agent design space due to the restriction of human-designed components, and thus might miss the globally optimal agent design. We introduce Gödel Agent, a self-evolving framework inspired by the Gödel machine, enabling agents to recursively improve themselves without relying on predefined routines or fixed optimization algorithms.",
-    citation: `<pre><code>@inproceedings{yin-etal-2025-godel,
-    title  = {G{\\"o}del Agent: A Self-Referential Agent Framework for Recursively Self-Improvement},
-    author = {Your Name and Co-Author One and Co-Author Two},
-    booktitle = {Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
-    year   = {2025},
-    url    = {https://aclanthology.org/2025.acl-long.1354/}
-}</code></pre>`,
+    title: "The Impact of Input Order Bias on Large Language Models for Software Fault Localization",
+    authors: "Md Nakhla Rafi, <b>Dong Jae Kim</b>, Tse-Hsun Chen, Shaowei Wang",
+    venue: "ICSE 2026",
+    year: 2026,
+    links: [],
     isNew: true,
     isPreprint: false,
     isSelected: true
+  },
+  {
+    title: "Identifying Performance-Sensitive Configurations in Software Systems through Code Analysis with LLM Agents",
+    authors: "Zehao Wang, <b>Dong Jae Kim</b>, Tse-Hsun Chen",
+    venue: "Empirical Software Engineering (EMSE) 2026",
+    year: 2026,
+    links: [],
+    isNew: true,
+    isPreprint: false,
+    isSelected: false
+  },
+  {
+    title: "Unsupervised, Accurate, and Efficient Log Parsing Using Smaller Open-Source Large Language Models",
+    authors: "Zeyang Ma, <b>Dong Jae Kim</b>, Tse-Hsun Chen",
+    venue: "ACM TOSEM 2026",
+    year: 2026,
+    links: [],
+    isNew: true,
+    isPreprint: false,
+    isSelected: false
+  },
+  {
+    title: "When LLM-Based Code Generation Meets the Software Development Process",
+    authors: "Feng Lin, <b>Dong Jae Kim</b>, Tse-Hsun Chen",
+    venue: "ICSE 2025",
+    year: 2025,
+    links: [],
+    isPreprint: false,
+    isSelected: true
+  },
+  {
+    title: "LibreLog: Accurate and Efficient Unsupervised Log Parsing Using Open-Source Large Language Models",
+    authors: "Zeyang Ma, <b>Dong Jae Kim</b>, Tse-Hsun Chen",
+    venue: "ICSE 2025",
+    year: 2025,
+    links: [],
+    isPreprint: false,
+    isSelected: true
+  },
+  {
+    title: "A First Look at the Inheritance-Induced Redundant Test Execution",
+    authors: "<b>Dong Jae Kim</b>, Tse-Hsun Chen, Jinqiu Yang",
+    venue: "ICSE 2024",
+    year: 2024,
+    links: [],
+    isPreprint: false,
+    isSelected: true
+  },
+  {
+    title: "LLMParser: An Exploratory Study on Using Large Language Models for Log Parsing",
+    authors: "Zeyang Ma, An Ran Chen, <b>Dong Jae Kim</b>, Tse-Hsun Chen, Shaowei Wang",
+    venue: "ICSE 2024",
+    year: 2024,
+    links: [],
+    isPreprint: false,
+    isSelected: false
+  },
+  {
+    title: "Towards Better Graph Neural Network-Based Fault Localization Through Enhanced Code Representation",
+    authors: "Md Nakhla Rafi, <b>Dong Jae Kim</b>, An Ran Chen, Tse-Hsun Chen, Shaowei Wang",
+    venue: "FSE 2024",
+    year: 2024,
+    links: [],
+    isPreprint: false,
+    isSelected: true
+  },
+  {
+    title: "Blessing or Curse? Investigating Test Code Maintenance through Inheritance and Interface",
+    authors: "<b>Dong Jae Kim</b>, Tse-Hsun Chen",
+    venue: "ICSME 2024",
+    year: 2024,
+    links: [],
+    isPreprint: false,
+    isSelected: false
+  },
+  {
+    title: "Challenges in Adopting an AI-Based User Input Verification Framework in Reporting Software Systems",
+    authors: "<b>Dong Jae Kim</b>, Steve Locke, Tse-Hsun Chen, et al.",
+    venue: "ICSE (SEIP) 2023",
+    year: 2023,
+    links: [],
+    isPreprint: false,
+    isSelected: false
+  },
+  {
+    title: "Studying Test Annotation Maintenance in the Wild",
+    authors: "<b>Dong Jae Kim</b>, Jinqiu Yang, Tse-Hsun Chen",
+    venue: "ICSE 2021",
+    year: 2021,
+    links: [],
+    isPreprint: false,
+    isSelected: false
+  },
+  {
+    title: "How Disabled Tests Manifest in Test Maintainability Challenges?",
+    authors: "<b>Dong Jae Kim</b>, Bo Yang, Jinqiu Yang, Tse-Hsun Chen",
+    venue: "FSE 2021",
+    year: 2021,
+    links: [],
+    isPreprint: false,
+    isSelected: false
+  },
+  {
+    title: "The Secret Life of Test Smells — An Empirical Study on Test Smell Evolution and Maintenance",
+    authors: "<b>Dong Jae Kim</b>, Tse-Hsun Chen, Jinqiu Yang",
+    venue: "Empirical Software Engineering (EMSE) 2021",
+    year: 2021,
+    links: [],
+    isPreprint: false,
+    isSelected: false
   }
 ];
 

@@ -24,10 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Full publications page (renders all preprints and all conference/journal papers)
   if (document.getElementById('preprints-list')) {
-    populatePublications(getPreprints(), 'preprints-list');
+    const preprintItems = getPreprints();
+    populatePublications(preprintItems, 'preprints-list');
+    toggleSectionVisibility('preprints-section', preprintItems.length > 0);
   }
   if (document.getElementById('publications-list')) {
-    populatePublications(getPublications(), 'publications-list');
+    populatePublicationsByYear(getPublications(), 'publications-list');
   }
 
   // Other sections (used on homepage or other pages if present)
@@ -54,97 +56,111 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Populate publications in the specified list element
+ * Show or hide a section wrapper (used to hide empty publication sections).
  */
-function populatePublications(publications, listId) {
-  const list = document.getElementById(listId);
-  if (!list) return;
+function toggleSectionVisibility(sectionId, isVisible) {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.hidden = !isVisible;
+  }
+}
 
-  publications.forEach(pub => {
-    const li = document.createElement('li');
+/**
+ * Build a single publication <li>. Links, abstract, and citation are only
+ * rendered when the entry actually provides them, so a bare reference stays
+ * clean instead of showing empty "coming soon" toggles.
+ */
+function createPublicationItem(pub) {
+  const li = document.createElement('li');
 
-    const titleDiv = document.createElement('div');
-    titleDiv.className = 'papertitle';
-    titleDiv.innerHTML = (pub.isNew ? '<span class="new-badge">New</span>' : '') + pub.title;
+  const titleDiv = document.createElement('div');
+  titleDiv.className = 'papertitle';
+  titleDiv.innerHTML = (pub.isNew ? '<span class="new-badge">New</span>' : '') + pub.title;
 
-    const restDiv = document.createElement('div');
-    restDiv.className = 'paper_rest';
-    restDiv.innerHTML = `${pub.authors}<br />`;
+  const restDiv = document.createElement('div');
+  restDiv.className = 'paper_rest';
+  restDiv.innerHTML = `${pub.authors}<br />`;
 
-    const venueSpan = document.createElement('span');
-    venueSpan.className = 'paper-venue';
-    venueSpan.innerHTML = `<i>${pub.venue}</i>`;
-    restDiv.appendChild(venueSpan);
+  const venueSpan = document.createElement('span');
+  venueSpan.className = 'paper-venue';
+  venueSpan.innerHTML = `<i>${pub.venue}</i>`;
+  restDiv.appendChild(venueSpan);
 
+  const linkElements = (pub.links || []).map(link => {
+    const anchor = document.createElement('a');
+    anchor.href = link.url;
+    anchor.textContent = link.text;
+    if (/^https?:\/\//i.test(link.url)) {
+      anchor.target = '_blank';
+      anchor.rel = 'noopener';
+    }
+    return anchor;
+  });
+
+  const createDetailToggle = (label, contentValue, baseClass) => {
+    const container = document.createElement('div');
+    container.className = `${baseClass}-container detail-container`;
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = `${baseClass}-toggle detail-toggle`;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = label;
+
+    const content = document.createElement('div');
+    content.className = `${baseClass}-content detail-content`;
+    content.innerHTML = contentValue;
+    content.hidden = true;
+    const contentId = `detail-content-${detailIdCounter++}`;
+    content.id = contentId;
+    content.setAttribute('role', 'region');
+    content.setAttribute('aria-label', `${pub.title} ${label.toLowerCase()}`);
+    toggle.setAttribute('aria-controls', contentId);
+
+    toggle.addEventListener('click', () => {
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      if (!isExpanded) {
+        closeOtherDetails(toggle);
+      }
+      const nextState = !isExpanded;
+      toggle.setAttribute('aria-expanded', String(nextState));
+      content.hidden = !nextState;
+      toggle.textContent = nextState ? `Hide ${label}` : label;
+    });
+
+    container.appendChild(content);
+    detailToggleRegistry.push({ toggle, content, label });
+    return { container, toggle };
+  };
+
+  const hasAbstract = typeof pub.abstract === 'string' && pub.abstract.trim().length > 0;
+  const hasCitation = typeof pub.citation === 'string' && pub.citation.trim().length > 0;
+
+  let abstractContainer = null;
+  let citationContainer = null;
+  const interactiveItems = [];
+
+  if (linkElements.length > 0) {
+    interactiveItems.push(linkElements[0]);
+  }
+  if (hasAbstract) {
+    const { container, toggle } = createDetailToggle('Abstract', pub.abstract, 'abstract');
+    abstractContainer = container;
+    interactiveItems.push(toggle);
+  }
+  if (linkElements.length > 1) {
+    linkElements.slice(1).forEach(linkElement => interactiveItems.push(linkElement));
+  }
+  if (hasCitation) {
+    const { container, toggle } = createDetailToggle('Citation', pub.citation, 'citation');
+    citationContainer = container;
+    interactiveItems.push(toggle);
+  }
+
+  if (interactiveItems.length > 0) {
     const linksWrapper = document.createElement('span');
     linksWrapper.className = 'paper-links';
     linksWrapper.appendChild(document.createTextNode('[ '));
-
-    const linkElements = pub.links.map(link => {
-      const anchor = document.createElement('a');
-      anchor.href = link.url;
-      anchor.textContent = link.text;
-      if (/^https?:\/\//i.test(link.url)) {
-        anchor.target = '_blank';
-        anchor.rel = 'noopener';
-      }
-      return anchor;
-    });
-
-    const createDetailToggle = (label, contentValue, fallbackText, baseClass) => {
-      const container = document.createElement('div');
-      container.className = `${baseClass}-container detail-container`;
-
-      const toggle = document.createElement('button');
-      toggle.type = 'button';
-      toggle.className = `${baseClass}-toggle detail-toggle`;
-      toggle.setAttribute('aria-expanded', 'false');
-      toggle.textContent = label;
-
-      const content = document.createElement('div');
-      content.className = `${baseClass}-content detail-content`;
-      const hasContent = typeof contentValue === 'string' && contentValue.trim().length > 0;
-      content.innerHTML = hasContent ? contentValue : fallbackText;
-      content.hidden = true;
-      const contentId = `detail-content-${detailIdCounter++}`;
-      content.id = contentId;
-      content.setAttribute('role', 'region');
-      content.setAttribute('aria-label', `${pub.title} ${label.toLowerCase()}`);
-      toggle.setAttribute('aria-controls', contentId);
-
-      toggle.addEventListener('click', () => {
-        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-        if (!isExpanded) {
-          closeOtherDetails(toggle);
-        }
-        const nextState = !isExpanded;
-        toggle.setAttribute('aria-expanded', String(nextState));
-        content.hidden = !nextState;
-        toggle.textContent = nextState ? `Hide ${label}` : label;
-      });
-
-      container.appendChild(content);
-      detailToggleRegistry.push({ toggle, content, label });
-      return { container, toggle };
-    };
-
-    const { container: abstractContainer, toggle: abstractToggle } =
-      createDetailToggle('Abstract', pub.abstract, 'Abstract coming soon.', 'abstract');
-    const { container: citationContainer, toggle: citationToggle } =
-      createDetailToggle('Citation', pub.citation, 'Citation coming soon.', 'citation');
-
-    const interactiveItems = [];
-    if (linkElements.length > 0) {
-      interactiveItems.push(linkElements[0]);
-    }
-    interactiveItems.push(abstractToggle);
-    if (linkElements.length > 1) {
-      linkElements.slice(1).forEach(linkElement => {
-        interactiveItems.push(linkElement);
-      });
-    }
-    interactiveItems.push(citationToggle);
-
     interactiveItems.forEach((item, index) => {
       if (index > 0) {
         linksWrapper.appendChild(document.createTextNode(' | '));
@@ -152,20 +168,60 @@ function populatePublications(publications, listId) {
       linksWrapper.appendChild(item);
     });
     linksWrapper.appendChild(document.createTextNode(' ]'));
-
     restDiv.appendChild(document.createTextNode(' '));
     restDiv.appendChild(linksWrapper);
+  }
 
-    const bottomSpaceDiv = document.createElement('div');
-    bottomSpaceDiv.className = 'paper_bottom_space';
+  const bottomSpaceDiv = document.createElement('div');
+  bottomSpaceDiv.className = 'paper_bottom_space';
 
-    li.appendChild(titleDiv);
-    li.appendChild(restDiv);
-    li.appendChild(abstractContainer);
-    li.appendChild(citationContainer);
-    li.appendChild(bottomSpaceDiv);
-    list.appendChild(li);
+  li.appendChild(titleDiv);
+  li.appendChild(restDiv);
+  if (abstractContainer) li.appendChild(abstractContainer);
+  if (citationContainer) li.appendChild(citationContainer);
+  li.appendChild(bottomSpaceDiv);
+  return li;
+}
+
+/**
+ * Populate publications in the specified list element
+ */
+function populatePublications(publications, listId) {
+  const list = document.getElementById(listId);
+  if (!list) return;
+  publications.forEach(pub => list.appendChild(createPublicationItem(pub)));
+}
+
+/**
+ * Populate publications grouped under a heading for each year (newest first).
+ */
+function populatePublicationsByYear(publications, listId) {
+  const list = document.getElementById(listId);
+  if (!list) return;
+
+  const years = [...new Set(publications.map(pub => pub.year).filter(Boolean))]
+    .sort((a, b) => b - a);
+  const undated = publications.filter(pub => !pub.year);
+
+  const renderGroup = (label, items) => {
+    if (items.length === 0) return;
+    const heading = document.createElement('li');
+    heading.className = 'pub-year-heading';
+    heading.setAttribute('role', 'presentation');
+    heading.textContent = label;
+    list.appendChild(heading);
+    items.forEach(pub => list.appendChild(createPublicationItem(pub)));
+  };
+
+  years.forEach(year => {
+    renderGroup(String(year), publications.filter(pub => pub.year === year));
   });
+  renderGroup('Other', undated);
+
+  // Fall back to a flat list if no entry carried a year.
+  if (years.length === 0 && undated.length === 0) {
+    populatePublications(publications, listId);
+  }
 }
 
 /**

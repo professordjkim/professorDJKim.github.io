@@ -28,15 +28,42 @@
       font-size: 24px;
       font-weight: 700;
       color: #1a1a1a;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
       text-align: left;
     }
 
+    .page-intro {
+      margin: 0 0 28px;
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    .page-intro a { color: var(--primary-color); }
+
     .publication-list li {
-      margin-bottom: 6px !important;
+      margin-bottom: 14px !important;
+    }
+
+    .pub-year-heading {
+      margin: 32px 0 14px !important;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6b7280;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .publication-list li.pub-year-heading:first-child {
+      margin-top: 0 !important;
     }
 
     [data-theme="dark"] .page-title { color: var(--text-color); }
+    [data-theme="dark"] .page-intro,
+    [data-theme="dark"] .pub-year-heading { color: #9ca3af; }
+    [data-theme="dark"] .pub-year-heading { border-bottom-color: #374151; }
 
   </style>
 </head>
@@ -46,9 +73,15 @@
 
   <main id="main-content" class="main-content-wrapper page-shell">
     <h1 class="page-title">Publications</h1>
+    <p class="page-intro">
+      Selected peer-reviewed papers, grouped by year. Author name in
+      <strong>bold</strong>. For the complete list, see the
+      <a href="files/Kim_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a> or
+      <a href="https://scholar.google.com/citations?user=wbkVpgYAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.
+    </p>
 
     <!-- Preprints -->
-    <div style="margin-bottom:24px;">
+    <div id="preprints-section" style="margin-bottom:24px;" hidden>
       <h2 id="preprints">Preprints</h2>
       <ul id="preprints-list" class="publication-list">
         <!-- Preprints will be inserted here -->
@@ -57,9 +90,8 @@
 
     <!-- Full Publications -->
     <div style="margin-bottom:24px;">
-      <h2 id="publications">Publications</h2>
       <ul id="publications-list" class="publication-list">
-        <!-- Publications will be inserted here -->
+        <!-- Publications will be inserted here, grouped by year -->
       </ul>
     </div>
   </main>
