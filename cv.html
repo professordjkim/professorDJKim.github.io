@@ -3,22 +3,22 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>CV - Your Name</title>
-  <meta name="author" content="Your Name">
+  <title>CV - Dong Jae Kim</title>
+  <meta name="author" content="Dong Jae Kim">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CV of Your Name - education, research experience, publications, projects, honors, teaching, talks, and academic services.">
+  <meta name="description" content="CV of Dong Jae Kim, Assistant Professor at DePaul University - education, appointments, publications, honors, grants, teaching, talks, and academic service.">
   <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="CV - Your Name">
-  <meta property="og:description" content="Education, research experience, publications, projects, honors, teaching, talks, and academic services.">
-  <meta property="og:image" content="https://yourwebsite.com/figures/me.jpg">
-  <meta property="og:url" content="https://yourwebsite.com/cv.html">
+  <meta property="og:title" content="CV - Dong Jae Kim">
+  <meta property="og:description" content="Education, appointments, publications, honors, grants, teaching, talks, and academic service.">
+  <meta property="og:image" content="https://professordjkim.github.io/figures/profile.jpg">
+  <meta property="og:url" content="https://professordjkim.github.io/cv.html">
   <meta property="og:type" content="profile">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="CV - Your Name">
-  <meta name="twitter:description" content="Education, research experience, publications, projects, honors, teaching, talks, and academic services.">
-  <meta name="twitter:image" content="https://yourwebsite.com/figures/me.jpg">
+  <meta name="twitter:title" content="CV - Dong Jae Kim">
+  <meta name="twitter:description" content="Education, appointments, publications, honors, grants, teaching, talks, and academic service.">
+  <meta name="twitter:image" content="https://professordjkim.github.io/figures/profile.jpg">
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="stylesheet" type="text/css" href="shared-styles.css">
@@ -66,30 +66,35 @@
       border-bottom: 1px solid #e5e7eb;
     }
 
-    .about-page #research-experience-list,
-    .about-page #honors-list,
-    .about-page #teaching-list,
-    .about-page #talks-list,
-    .about-page #academic-services-list {
-      list-style: disc !important;
-      padding-left: 20px !important;
-      margin: 0 0 12px 0 !important;
+    .about-page .about-section ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin: 0 0 12px 0;
     }
 
     .about-page li,
-    .about-section li,
-    .about-page .about-section li {
-      margin-bottom: 4px !important;
-      padding: 0 !important;
+    .about-section li {
+      margin-bottom: 6px;
+      padding: 0;
       color: #374151;
       line-height: 1.6;
     }
 
+    .about-section .cv-meta {
+      color: #6b7280;
+      white-space: nowrap;
+    }
+
+    .about-section .cv-note {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
     .about-page p,
-    .about-section p,
-    .about-section li p {
-      margin: 0 !important;
-      padding: 0 !important;
+    .about-section p {
+      margin: 0;
+      padding: 0;
     }
 
     /* Dark mode */
@@ -98,8 +103,9 @@
       color: var(--text-color);
       border-bottom-color: #374151;
     }
-    [data-theme="dark"] .about-section li,
-    [data-theme="dark"] .about-section li p { color: var(--text-color); }
+    [data-theme="dark"] .about-section li { color: var(--text-color); }
+    [data-theme="dark"] .about-section .cv-meta,
+    [data-theme="dark"] .about-section .cv-note { color: #9ca3af; }
 
   </style>
 </head>
@@ -108,57 +114,126 @@
   <div id="site-nav"></div>
 
   <main id="main-content" class="about-page page-shell">
-    <h1>CV <a href="files/CV.pdf" class="cv-pdf-link" target="_blank" rel="noopener">[PDF]</a></h1>
+    <h1>Curriculum Vitae <a href="files/Kim_CV.pdf" class="cv-pdf-link" target="_blank" rel="noopener">[PDF]</a></h1>
     <div class="cv-contact">
-      <a href="mailto:your.email@institution.edu">your.email@institution.edu</a><span class="sep">/</span>
-      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a><span class="sep">/</span>
-      <a href="https://scholar.google.com/citations?user=YOURID" target="_blank" rel="noopener">Google Scholar</a><span class="sep">/</span>
-      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a><span class="sep">/</span>
-      <a href="https://x.com/yourusername" target="_blank" rel="noopener">Twitter</a>
+      <a href="mailto:dkim121@depaul.edu">dkim121@depaul.edu</a><span class="sep">/</span>
+      <a href="https://scholar.google.com/citations?user=wbkVpgYAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a><span class="sep">/</span>
+      <a href="https://github.com/professordjkim" target="_blank" rel="noopener">GitHub</a><span class="sep">/</span>
+      <a href="https://www.linkedin.com/in/dongjae-kim-9819a5138/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">/</span>
+      <a href="https://professordjkim.github.io/" target="_blank" rel="noopener">sabrlab.com</a>
+    </div>
+
+    <div class="about-section">
+      <p>
+        Assistant Professor, Jarvis College School of Computing, DePaul University,
+        Chicago, IL. Research on LLM-driven techniques for software reliability &mdash;
+        AI-assisted code understanding, runtime observability, and developer workflows.
+      </p>
     </div>
 
     <div class="about-section">
       <h2>Education</h2>
       <ul>
-        <li>Ph.D. in Your Field, <a href="https://yourinstitution.edu/">Your Institution</a>, YYYY &ndash; Present</li>
-        <li>M.S. in Your Field, <a href="https://previous-institution.edu/">Previous Institution</a>, YYYY &ndash; YYYY</li>
-        <li>B.S. in Your Field, <a href="https://previous-institution.edu/">Previous Institution</a>, YYYY &ndash; YYYY</li>
+        <li>
+          <strong>Ph.D. in Computer Science</strong>, Concordia University, Montreal, Canada
+          <span class="cv-meta">(2019 &ndash; 2024)</span><br>
+          Thesis: &ldquo;Demystifying Myths in Test Code Quality through Program Analysis.&rdquo;
+          Advisor: Tse-Hsun (Peter) Chen.
+        </li>
+        <li>
+          <strong>B.Sc. in Science</strong>, McGill University, Montreal, Canada
+          <span class="cv-meta">(2012 &ndash; 2016)</span><br>
+          Advisor: Kalle Gehring.
+        </li>
+      </ul>
+    </div>
+
+    <div class="about-section">
+      <h2>Appointments</h2>
+      <ul>
+        <li>Assistant Professor, School of Computing, DePaul University, Chicago, IL <span class="cv-meta">(Sep 2024 &ndash; Present)</span></li>
+        <li>Research Collaborator, Mozilla (Firefox), Open Source <span class="cv-meta">(Jul 2025 &ndash; Present)</span></li>
+        <li>Applied Machine Learning Engineer, ERA Environmental Management Solutions, Montreal, Canada <span class="cv-meta">(Aug 2022 &ndash; Aug 2024)</span></li>
+        <li>Research Consultant, Ericsson, Montreal, Canada <span class="cv-meta">(Sep 2021 &ndash; Dec 2022)</span></li>
+        <li>Research Fellow, Concordia University, Montreal, Canada <span class="cv-meta">(Aug 2020 &ndash; Aug 2024)</span></li>
+        <li>Software Developer, Web On Demand, Toronto, Canada <span class="cv-meta">(Aug 2018 &ndash; Jan 2019)</span></li>
       </ul>
     </div>
 
     <div class="about-section">
       <h2>Selected Publications</h2>
-      <ul id="selected-papers-list" class="publication-list"></ul>
-    </div>
-
-    <div class="about-section">
-      <h2>Selected Projects</h2>
-      <ul id="projects-list"></ul>
-    </div>
-
-    <div class="about-section">
-      <h2>Research Experience</h2>
-      <ul id="research-experience-list"></ul>
+      <ul>
+        <li>Md Nakhla Rafi, <strong>Dong Jae Kim</strong>, Tse-Hsun Chen, Shaowei Wang. &ldquo;The Impact of Input Order Bias on Large Language Models for Software Fault Localization.&rdquo; <em>ICSE</em> 2026.</li>
+        <li>Feng Lin, <strong>Dong Jae Kim</strong>, Tse-Hsun Chen. &ldquo;When LLM-Based Code Generation Meets the Software Development Process.&rdquo; <em>ICSE</em> 2025.</li>
+        <li>Zeyang Ma, <strong>Dong Jae Kim</strong>, Tse-Hsun Chen. &ldquo;LibreLog: Accurate and Efficient Unsupervised Log Parsing Using Open-Source Large Language Models.&rdquo; <em>ICSE</em> 2025.</li>
+        <li><strong>Dong Jae Kim</strong>, Tse-Hsun Chen, Jinqiu Yang. &ldquo;A First Look at the Inheritance-Induced Redundant Test Execution.&rdquo; <em>ICSE</em> 2024.</li>
+        <li>Zeyang Ma, An Ran Chen, <strong>Dong Jae Kim</strong>, Tse-Hsun Chen, Shaowei Wang. &ldquo;LLMParser: An Exploratory Study on Using Large Language Models for Log Parsing.&rdquo; <em>ICSE</em> 2024.</li>
+        <li>Md Nakhla Rafi, <strong>Dong Jae Kim</strong>, An Ran Chen, Tse-Hsun Chen, Shaowei Wang. &ldquo;Towards Better Graph Neural Network-Based Fault Localization Through Enhanced Code Representation.&rdquo; <em>FSE</em> 2024.</li>
+        <li><strong>Dong Jae Kim</strong>, Tse-Hsun Chen. &ldquo;Blessing or Curse? Investigating Test Code Maintenance through Inheritance and Interface.&rdquo; <em>ICSME</em> 2024.</li>
+        <li><strong>Dong Jae Kim</strong>, Steve Locke, Tse-Hsun Chen, et al. &ldquo;Challenges in Adopting an AI-Based User Input Verification Framework in Reporting Software Systems.&rdquo; <em>ICSE (SEIP)</em> 2023.</li>
+        <li><strong>Dong Jae Kim</strong>, Jinqiu Yang, Tse-Hsun Chen. &ldquo;Studying Test Annotation Maintenance in the Wild.&rdquo; <em>ICSE</em> 2021.</li>
+        <li><strong>Dong Jae Kim</strong>, Bo Yang, Jinqiu Yang, Tse-Hsun Chen. &ldquo;How Disabled Tests Manifest in Test Maintainability Challenges?&rdquo; <em>FSE</em> 2021.</li>
+        <li>Zehao Wang, <strong>Dong Jae Kim</strong>, Tse-Hsun Chen. &ldquo;Identifying Performance-Sensitive Configurations in Software Systems through Code Analysis with LLM Agents.&rdquo; <em>Empirical Software Engineering (EMSE)</em> 2026.</li>
+        <li>Zeyang Ma, <strong>Dong Jae Kim</strong>, Tse-Hsun Chen. &ldquo;Unsupervised, Accurate, and Efficient Log Parsing Using Smaller Open-Source Large Language Models.&rdquo; <em>ACM TOSEM</em> 2026.</li>
+        <li><strong>Dong Jae Kim</strong>, Tse-Hsun Chen, Jinqiu Yang. &ldquo;The Secret Life of Test Smells &mdash; An Empirical Study on Test Smell Evolution and Maintenance.&rdquo; <em>Empirical Software Engineering (EMSE)</em> 2021.</li>
+      </ul>
+      <p class="cv-note">Full publication list in the <a href="files/Kim_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a> and on <a href="https://scholar.google.com/citations?user=wbkVpgYAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
     </div>
 
     <div class="about-section">
       <h2>Honors &amp; Awards</h2>
-      <ul id="honors-list"></ul>
+      <ul>
+        <li>Best Presentation Award, FSE 2024 (as advisor of Md Nakhla Rafi)</li>
+        <li>Reviewer Recognition, IEEE Transactions on Software Engineering (TSE), 2025</li>
+        <li>Hugh McQueen Award of Excellence, Concordia University, 2023</li>
+        <li>ACM SIGSOFT CAPS Award, 2023 and 2024</li>
+        <li>DePaul Travel Award, 2024, 2025, 2026</li>
+        <li>Selected Participant, Foundation Models for Software Engineering Vision 2030, 2023</li>
+        <li>ICSE Travel Award, 2020</li>
+      </ul>
+    </div>
+
+    <div class="about-section">
+      <h2>Grants &amp; Funding</h2>
+      <ul>
+        <li>Motorola Solutions Foundation &mdash; &ldquo;A Framework for Accessible Web Interface,&rdquo; $5,600, 2025 &ndash; 2026</li>
+        <li>NSERC (Canada) &mdash; &ldquo;Predictive Mutation Testing,&rdquo; $63,000 CAD, 2022 &ndash; 2025</li>
+        <li>Graduate Doctoral Incentive Fellowship, Concordia University &mdash; $56,000 CAD, 2022 &ndash; 2025</li>
+        <li>DePaul Undergraduate Research Assistant Program (URAP) &mdash; Firefox crash-telemetry fault-localization benchmark (2026); automated penetration testing with multi-agent systems (2024)</li>
+        <!-- <li>Pending: Amazon Research Award, Agentic Engineering ($80,000); OpenAI Researcher Access Program</li> -->
+      </ul>
     </div>
 
     <div class="about-section">
       <h2>Teaching</h2>
-      <ul id="teaching-list"></ul>
+      <ul>
+        <li>SE441 &mdash; AI-Augmented Software Delivery and DevOps, DePaul University (course developed; Winter 2026)</li>
+        <li>SE331 &mdash; Software Testing, DePaul University (Fall 2024, Winter 2025, Fall 2025, Winter 2026, Spring 2026)</li>
+        <li>SE350 &mdash; Object-Oriented Software Development, DePaul University (Fall 2024)</li>
+        <li>Graduate and undergraduate research supervision (CSC695, CSC699, CSC399), DePaul University</li>
+        <li>SOEN 6111 &mdash; Big Data Analytics; SOEN 321 &mdash; Software Process, Concordia University (2019 &ndash; 2021)</li>
+      </ul>
     </div>
 
     <div class="about-section">
-      <h2>Talks</h2>
-      <ul id="talks-list"></ul>
+      <h2>Invited Talks</h2>
+      <ul>
+        <li>&ldquo;Order Matters! Context-Order Bias in Agentic Software Fault Localization,&rdquo; Conference on AI &amp; Agentic Systems (CAIS), San Jose, 2026</li>
+        <li>&ldquo;A First Look at the Inheritance-Induced Redundant Test Execution,&rdquo; Canadian Software Engineering Research (CSER), Kingston, Canada, 2025</li>
+        <li>&ldquo;Anomaly in Product Usage Data in Manufacturing Processes,&rdquo; SP Innovation Summit, Ohio, 2022</li>
+        <li>&ldquo;The Secret Life of Test Smells,&rdquo; Journal-First presentation, ICSE, Pittsburgh, 2022</li>
+        <li>&ldquo;Studying Test Annotation Maintenance in the Wild,&rdquo; Canadian Software Engineering Research (CSER), Toronto, 2022</li>
+      </ul>
     </div>
 
     <div class="about-section">
-      <h2>Academic Services</h2>
-      <ul id="academic-services-list"></ul>
+      <h2>Professional Service</h2>
+      <ul>
+        <li>Program committee / reviewer: ICSE, FSE, ISSTA (Lead Reviewer), ASE, ICSME (Lead Reviewer), SANER, MSR, ICPE, FORGE, AIware, AAAI, NeurIPS</li>
+        <li>Journal reviewer: ACM TOSEM (Editorial Board, 2026 &ndash; 2027), IEEE TSE, Empirical Software Engineering, IEEE Software, Journal of Systems and Software, IEEE Transactions on Reliability</li>
+        <li>DePaul University: Associate Program Chair for Software Engineering; PhD Committee; Faculty Search Committee; AI, Computer Science, and Online-Learning Program Committees</li>
+        <li>Co-Director, AIEspresso Journal Club, DePaul University (2024 &ndash; Present)</li>
+      </ul>
     </div>
 
   </main>

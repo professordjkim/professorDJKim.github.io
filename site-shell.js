@@ -7,9 +7,6 @@
   const NAV_ITEMS = [
     { key: 'home', href: 'index.html', label: 'Home' },
     { key: 'publications', href: 'publications.html', label: 'Publications' },
-    { key: 'projects', href: 'projects.html', label: 'Projects' },
-    { key: 'blogs', href: 'blogs.html', label: 'Blogs' },
-    { key: 'photography', href: 'photography.html', label: 'Photography' },
     { key: 'cv', href: 'cv.html', label: 'CV' }
   ];
 
