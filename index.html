@@ -172,6 +172,25 @@
       padding-bottom: 0 !important;
     }
 
+    .homepage-section p {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.7;
+      margin: 0 0 12px 0;
+    }
+
+    .homepage-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .homepage-section p a {
+      color: var(--primary-color);
+    }
+
+    [data-theme="dark"] .homepage-section p {
+      color: var(--text-color);
+    }
+
 
     .view-all {
       display: inline-block;
@@ -254,38 +273,170 @@
     <!-- Profile -->
     <div class="profile-section">
       <div class="profile-text">
-        <div class="name">Your Name</div>
-        <div class="pronunciation">(Optional pronunciation guide)</div>
+        <div class="name">Dong Jae Kim</div>
         <p class="bio">
-          Hi! I am a [Your Position] at <a href="https://yourinstitution.edu/">Your Institution</a>, supervised by Prof.
-          <a href="https://advisor-website.com/">Advisor Name</a>. Previously, I received my [degree] from
-          <a href="https://previous-institution.edu/">Previous Institution</a> under the supervision of Prof.
-          <a href="https://previous-advisor.com/">Previous Advisor</a>.
-          Brief description of your research interests and the questions you care about.
+          Dr. Dong Jae (DJae) Kim is an Assistant Professor at the Jarvis School of Computing at DePaul University, Chicago, Illinois, USA. Prior to joining DePaul, Dr. Kim received his Ph.D. from Concordia University, Canada in August 2024, under the supervision of Dr. Tse-Hsun (Peter) Chen. During his Ph.D., Dr. Kim worked as a technical consultant for Ericsson in 2023 and data anomaly engineer at ERA-Environmental Management solution in 2024. Before starting his graduate studies in 2019, Dr. Kim also worked at the various web-based startup as a software engineer.
+          Dr. Kim's research focuses on software engineering topics, including software debugging, software testing, software maintainability, software quality assurances, software re-engineering, program analysis, mining software repositories and AI-driven software engineering. Currently, Dr. Kim's research is on benchmarking capability of large-language models on software engineering tasks.
         </p>
         <p class="bio">
           Feel free to reach out to me if you'd like to discuss research or explore potential collaboration!
         </p>
         <div class="profile-links">
-          <a href="mailto:your.email@institution.edu">Email</a> /
-          <a href="https://github.com/yourusername">Github</a> /
-          <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a> /
-          <a href="https://x.com/yourusername">Twitter</a> /
-          <a href="files/CV.pdf">CV</a> /
-          <a href="https://scholar.google.com/citations?user=YOURID">Google Scholar</a>
+          <a href="mailto:dkim12@depaul.edu">Email</a> /
+          <a href="https://github.com/professordjkim">Github</a> /
+          <a href="https://www.linkedin.com/in/dongjae-kim-9819a5138/">LinkedIn</a> /
+          <!-- <a href="https://x.com/yourusername">Twitter</a> / -->
+          <!-- <a href="files/CV.pdf">CV</a> / -->
+          <a href="https://scholar.google.com/citations?user=wbkVpgYAAAAJ&hl=en">Google Scholar</a>
         </div>
       </div>
-      <img class="profile-photo" alt="Your Name" src="figures/me.jpg" loading="eager" width="160" height="160">
+      <img class="profile-photo" alt="Your Name" src="figures/profile.jpg" loading="eager" width="160" height="160">
+    </div>
+
+    <!-- SABR Lab -->
+    <div class="homepage-section">
+      <h2>SABR Lab</h2>
+      <p>
+        At DePaul University, Dr. Kim directs the <strong>S</strong>oftware Analysis,
+        <strong>A</strong>utomation, <strong>B</strong>enchmarking, and
+        <strong>R</strong>e-engineering Lab (<a href="https://professordjkim.github.io/" target="_blank" rel="noopener">SABR Lab</a>).
+        The group advances the frontiers of intelligent software engineering, developing
+        methodologies and tools that improve the quality, efficiency, and reliability of
+        modern software systems.
+      </p>
+    </div>
+
+    <!-- Open Positions -->
+    <div class="homepage-section">
+      <h2>Open Positions</h2>
+      <p>
+        SABR Lab is looking for highly motivated M.Sc. and Ph.D. students for Fall 2026
+        and Winter 2025. If you have strong programming skills and a keen interest in software
+        engineering, please
+        <a href="mailto:dkim121@depaul.edu">email Dr. Kim</a> with your CV, transcript, and a
+        brief letter of interest. See the
+        <a href="https://professordjkim.github.io/" target="_blank" rel="noopener">lab website</a> for more
+        information.
+      </p>
     </div>
 
     <!-- News -->
-    <div class="homepage-section">
-      <h2>News</h2>
-      <ul class="news-list">
-        <li><span class="news-date">Month YYYY</span><span>A short news item describing a recent update, talk, or
-              milestone.</span></li>
-      </ul>
-    </div>
+<div class="homepage-section">
+  <h2>News</h2>
+
+  <ul class="news-list">
+    <li>
+      <span class="news-date">2026</span>
+      <span>
+        Our paper, <em>The Impact of Input Order Bias on Large Language
+        Models for Software Fault Localization</em>, was accepted to the
+        ICSE 2026 Main Track.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">2026</span>
+      <span>
+        Our work on LLM-agent-based identification of
+        performance-sensitive configurations was published in
+        <em>Empirical Software Engineering</em>.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">2026</span>
+      <span>
+        Our extended work on accurate and efficient log parsing using
+        smaller open-source language models was published in
+        <em>ACM Transactions on Software Engineering and Methodology</em>.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">July 2026</span>
+      <span>
+        Received a DePaul Undergraduate Research Grant to develop an
+        enterprise-scale fault-localization benchmark using Mozilla Firefox
+        crash telemetry.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">2026</span>
+      <span>
+        Gave an invited talk, <em>Order Matters! Context-Order Bias in
+        Agentic Software Fault Localization</em>, at the Conference on
+        AI and Agentic Systems in San Jose.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">2026</span>
+      <span>
+        Joined the reviewer board of
+        <em>ACM Transactions on Software Engineering and Methodology</em>
+        for a two-year appointment.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">Dec. 2026</span>
+      <span>
+        Developed and launched SE441:
+        <em>AI-Augmented Software Delivery and DevOps</em> at DePaul
+        University.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">Sept. 2025</span>
+      <span>
+        Welcomed Fairuz Bilquis Khan as a Ph.D. student working on
+        LLM-based code navigation, execution analysis, and agent context
+        management.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">July 2025</span>
+      <span>
+        Began a research collaboration with Mozilla on fault localization
+        using Firefox crash data and telemetry.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">2025</span>
+      <span>
+        Received support from the Motorola Solutions Foundation for research
+        on accessible web interfaces and adaptive user onboarding.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">2025</span>
+      <span>
+        Published research on LLM-based code generation and open-source log
+        parsing at ICSE 2025, and LLM-based log-level suggestion at ICST 2025.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">Sept. 2024</span>
+      <span>
+        Joined the School of Computing at DePaul University as an
+        Assistant Professor.
+      </span>
+    </li>
+
+    <li>
+      <span class="news-date">Sept. 2024</span>
+      <span>
+        Completed a Ph.D. in Computer Science at Concordia University.
+      </span>
+    </li>
+  </ul>
+</div>
 
     <!-- Selected Papers -->
     <div class="homepage-section">
@@ -297,13 +448,12 @@
     </div>
 
     <!-- Selected Projects -->
-    <div class="homepage-section">
+    <!-- <div class="homepage-section">
       <h2>Selected Projects</h2>
       <ul id="projects-list">
-        <!-- Populated by main.js -->
       </ul>
       <a href="projects.html" class="view-all">View all projects &rarr;</a>
-    </div>
+    </div> -->
 
   </main>
 
