@@ -7,6 +7,7 @@
   const NAV_ITEMS = [
     { key: 'home', href: 'index.html', label: 'Home' },
     { key: 'publications', href: 'publications.html', label: 'Publications' },
+    { key: 'team', href: 'team.html', label: 'Team' },
     { key: 'cv', href: 'cv.html', label: 'CV' }
   ];
 
@@ -89,6 +90,7 @@
       'blogs.html': 'blogs',
       'blog-post.html': 'blogs',
       'photography.html': 'photography',
+      'team.html': 'team',
       'cv.html': 'cv'
     };
 
